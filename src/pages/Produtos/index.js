@@ -33,7 +33,7 @@ const Page =  (props) => {
     const [resultOpacity, setresultOpacity] = useState(1);
     const [StLoading, setStLoading] = useState(false);
     const [StLoadingCEP, setStLoadingCEP] = useState(false);
-    const [idGrupoProduto, setIdGrupoProduto] = useState('17');
+    const [idGrupoProduto, setIdGrupoProduto] = useState('36');
     const [modalIsOpen, setmodalIsOpen] = useState(false);
     const [idProduto, setIdProduto] = useState(0);
     const [srcLinck, setsrcLinck] = useState('');
