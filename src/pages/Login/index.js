@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Loading from '../../components/Loading';
+import { Link } from 'react-router-dom';
 import { SearchArea } from './styled';
 import useApi from '../../helpers/SalatoAPI'
 import { PageContainer, ErrorMessage, SucessoMessage,  PageTitle  } from '../../components/MainComponents';
@@ -74,6 +75,7 @@ const Page =  (props) => {
                                     onChange={()=>setRememberPassword(!rememberPassword)}
 
                                 />
+                                 <Link to="/Recuperar">Esqueceu a senha?</Link>
                             </div>
                         </label>
                         <label className="area">

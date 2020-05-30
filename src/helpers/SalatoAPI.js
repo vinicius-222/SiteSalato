@@ -270,6 +270,31 @@ const SalatoAPI = {
             'http://cep.republicavirtual.com.br/web_cep.php?cep=' + cep +'&formato=json'
         )
         return json;
+    },
+
+    insertRecuperaSenha:async(email) => {
+        const json = await apiFetchPost(
+            '/user/handleRecuperaSenha',
+            {email}
+        )
+        return json;
+    },
+    
+    getHandleRecuperaSenha:async(token) =>{
+        const json = await apiFetchGet(
+            '/user/handleRecuperaSenha',
+            {token}
+        )
+        console.log(json);
+        return json;
+    },
+
+    updateHandleRecuperSenha:async(token, pass) =>{
+        const json = await apiFetchPut(
+            '/user/handleRecuperaSenha',
+            {token, pass}
+        )
+        return json;
     }
 }
 

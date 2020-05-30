@@ -28,8 +28,11 @@ form {
             font-size:14px;
         }
         .area--input {
+            display:flex;
             flex:1;
-
+            a{
+                width:250px;
+            }
             input {
                 width:100%;
                 font-size:14px;

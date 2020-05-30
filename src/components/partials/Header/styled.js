@@ -31,7 +31,7 @@ export const HeaderArea = styled.div`
             margin-right:10px;
             text-decoration:none;
             cursor:pointer;
-            font-size:15px;
+            font-size:19px;
         }
 
         .LineHeader{
@@ -183,7 +183,7 @@ export const HeaderArea = styled.div`
                 }
 
                 &.button{
-                    font-size:15px;
+                    font-size:19px;
                     border-radius:4px;
                     color:#FF0000;
                     padding:2px 5px;

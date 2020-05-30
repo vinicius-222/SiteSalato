@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "905a2cc2bd025f3013a73ce14b973b08",
+    "revision": "ef1da1547e4be83de8c00b74f61fc98b",
     "url": "/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/css/2.47fb9b64.chunk.css"
   },
   {
-    "revision": "32cc88cd73c7745644ee",
-    "url": "/static/css/main.84379cb3.chunk.css"
+    "revision": "0b605de5c8ec39a362b0",
+    "url": "/static/css/main.320922bc.chunk.css"
   },
   {
     "revision": "e22da031dd043eebe183",
     "url": "/static/js/2.e3f4201d.chunk.js"
   },
   {
-    "revision": "32cc88cd73c7745644ee",
-    "url": "/static/js/main.3f365c65.chunk.js"
+    "revision": "0b605de5c8ec39a362b0",
+    "url": "/static/js/main.d67f7b3c.chunk.js"
   },
   {
     "revision": "9aabb23bcbd2c9e69d36",
@@ -26,6 +26,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "97da2b1474e965a1a375dc86c0930273",
     "url": "/static/media/Logo.97da2b14.png"
+  },
+  {
+    "revision": "dc67f52fbb48b7dfde82ee485e22dc5b",
+    "url": "/static/media/bariol-bold-webfont.dc67f52f.ttf"
+  },
+  {
+    "revision": "256143b2519c9b24181fe8172a9884d5",
+    "url": "/static/media/bariol-regular-webfont.256143b2.ttf"
   },
   {
     "revision": "4880430bbf179cdcda3c6d2152cd683a",

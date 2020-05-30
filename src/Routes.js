@@ -10,6 +10,8 @@ import Contato from './pages/Contato';
 import Cadastrar from './pages/Cadastrar';
 import Login from './pages/Login';
 import Calculadora from './pages/Calculadora';
+import Redefinir from './pages/Redefinir';
+import Recuperar from './pages/Recuperar';
 
 export default () => {
     return(
@@ -34,6 +36,12 @@ export default () => {
             </RouteHandler>
             <RouteHandler exact path='/Calculadora'>
                 <Calculadora />
+            </RouteHandler>
+            <RouteHandler exact path='/Redefinir'>
+                <Redefinir />
+            </RouteHandler>
+            <RouteHandler exact path='/Recuperar'>
+                <Recuperar />
             </RouteHandler>
             <RouteHandler>
                 <Login />
