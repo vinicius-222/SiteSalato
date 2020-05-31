@@ -16,12 +16,17 @@ const Recuperar = (props) =>{
 
     const sendEmail = async (e) =>{
         e.preventDefault();
+        setMsg('');
+        setMsgError('');
         setDisabled(true);
         const json = await API.insertRecuperaSenha(email);
 
-        if (!json.error){
+        if (!json.email){
             setMsg('Enviamos um e-mail para voçe com informções para redefinir a senha!!');
             setEmail('');
+            setDisabled(false);
+        }else{
+            setMsgError(json.email);
             setDisabled(false);
         }
     }

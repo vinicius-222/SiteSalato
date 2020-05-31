@@ -59,4 +59,27 @@ export const Container = styled.div`
             }
         }
     }
+
+    @media (max-width:800px){
+        h1{
+            margin-left:10px;
+        }
+    
+        .AreaContainer{
+            padding:20px;
+            .Area{
+                padding:5px 0px;
+                flex-direction:column;
+                align-items:flex-start;
+                
+                .Area--AreaTitle {               
+                    text-align:left
+                }
+                .Area--AreaInput{
+                    margin-left:0px;
+                    width:100%;
+                }
+            }  
+        }  
+    }
 `;
