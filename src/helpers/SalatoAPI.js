@@ -83,6 +83,7 @@ const apiFetchGet = async (endpoint, body = []) => {
             body.hash = hash;
         }
     }
+    
 
     const res = await fetch(`${BASEAPI+endpoint}?${qs.stringify(body)}`);
     const json = await res.json();
@@ -217,9 +218,11 @@ const SalatoAPI = {
         return json;
     },
 
-    getGrupoProduto:async () => {
+    getGrupoProduto:async (StAtivo = 1, StPersonalizado = 0) => {
         const json = await apiFetchGet(
-            '/pedidos/getGrupoProduto'
+            '/pedidos/getGrupoProduto',
+            {'StSite':StAtivo, 
+            'StPersonalizado':StPersonalizado}
         )
         return json;
     },
@@ -295,7 +298,84 @@ const SalatoAPI = {
             {token, pass}
         )
         return json;
-    }
+    },
+
+    getClienteDelivery:async (jwt,hash) =>{
+        const json = await apiFetchGet(
+            '/cliente/ClienteDelivery',
+            {jwt,hash}
+        )
+        return json;
+    },
+
+    updateClienteDelivery:async (jwt, hash , CdChamada, NmPessoa, CdCPF_CNPJ, DsTeleFoneCobranca, DsFaxCobranca, DtNascimento, TpEstadoCivil, NrIdentidade, TpSexo )=>{
+        const json = await apiFetchPut(
+            '/cliente/ClienteDelivery',
+            {jwt, hash, CdChamada, NmPessoa, CdCPF_CNPJ, DsTeleFoneCobranca, DsFaxCobranca, DtNascimento, TpEstadoCivil, NrIdentidade, TpSexo},
+        )
+        return json;
+    },
+
+    updatePass:async (jwt, hash, email, pass, newPass) =>{
+        const json = await apiFetchPost(
+            '/user/updatePass',
+            {jwt, hash, email, pass, newPass},
+        )
+        return json;
+    },
+
+    insertEndereco:async (jwt, DsLogradouro, DsBairro, DsCidade, NrNumero, DsCEP, CdUF, TpEndereco = '', 
+                          NmEndereco = '', DsPontoDeReferencia = '', NmDestinatario = '',Latitude, Longitude, Distancia, Tempo, Valor) => {
+        const json = await apiFetchPost(
+            '/user/insertEndereco',
+            {jwt, DsLogradouro, DsBairro, DsCidade, NrNumero, DsCEP, CdUF, TpEndereco, 
+            NmEndereco, DsPontoDeReferencia, NmDestinatario, Latitude, Longitude, Distancia, Tempo, Valor},
+        )
+        return json;
+    },
+
+    updateEndereco:async (jwt, IdEndereco, DsLogradouro, DsBairro, DsCidade, NrNumero, DsCEP, CdUF, StEntrega, 
+                          TpEndereco = '', NmEndereco = '', DsPontoDeReferencia = '', NmDestinatario = '',
+                          Latitude, Longitude, Distancia, Tempo, Valor) => {
+        const json = await apiFetchPut(
+            '/user/updateEndereco',
+            {jwt, IdEndereco, DsLogradouro, DsBairro, DsCidade, NrNumero, DsCEP, CdUF, StEntrega, 
+            TpEndereco, NmEndereco, DsPontoDeReferencia, NmDestinatario, Latitude, Longitude, Distancia, Tempo, Valor},
+        )
+        
+        return json;
+    },
+
+    updateStEndereco:async (jwt, IdEndereco, StEntrega) => {
+        const json = await apiFetchPost(
+            '/user/updateStEndereco',
+            {jwt, IdEndereco, StEntrega},
+        )
+        return json;
+    },
+
+    deleteEndereco:async (jwt, IdEndereco, hash) => {
+        const json = await apiFetchDelete(
+            '/user/delEndereco',
+            {jwt, IdEndereco, hash}
+        )
+        return json;
+    },
+
+    getEnderecoCEP:async (cep) => {
+        const json = await apiFetchGetEnd(
+            'http://cep.republicavirtual.com.br/web_cep.php?cep=' + cep +'&formato=json'
+        )
+        return json;
+    },
+
+    getEndereco:async (jwt) => {
+        const json = await apiFetchGet(
+            '/user/getEndereco',
+            {"jwt":jwt}
+        )
+        return json;
+    },
 }
 
 export default () => SalatoAPI;

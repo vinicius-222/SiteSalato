@@ -79,13 +79,16 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>
                                             </li>
                                             <li>
-                                                <Link to="/my-account">Minha Conta</Link>
+                                                <Link to="/MinhaConta?cat=MinhaConta">Minha Conta</Link>
                                             </li>
                                             <li>
                                                 <button className="button" onClick={handleLogout}>Sair</button>
@@ -97,7 +100,10 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>
@@ -123,13 +129,16 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>
                                             </li>
                                             <li>
-                                                <Link to="/my-account">Minha Conta</Link>
+                                                <Link to="/MinhaConta?cat=MinhaConta">Minha Conta</Link>
                                             </li>
                                             <li>
                                                 <button className="button" onClick={handleLogout}>Sair</button>
@@ -141,7 +150,10 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>
@@ -159,7 +171,7 @@ const Header = (props) => {
                             </nav>
                         </div>
 
-                        <div style={{height: StDisplay ? '224px' : '0px'}} className="AreaNavSmart">
+                        <div style={{height: StDisplay ? '300px' : '0px'}} className="AreaNavSmart">
                             <nav style={{display: StDisplay ? 'flex' : 'none' }}>
                                 <ul>
                                     {logged &&
@@ -167,13 +179,16 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>
                                             </li>
                                             <li>
-                                                <Link to="/my-account">Minha Conta</Link>
+                                                <Link to="/MinhaConta?cat=MinhaConta">Minha Conta</Link>
                                             </li>
                                             <li>
                                                 <button className="button" onClick={handleLogout}>Sair</button>
@@ -185,7 +200,10 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
-                                                <Link to="/produtos">Produtos</Link>
+                                                <Link to="/produtos">Cardápio</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/lojas">Lojas</Link>
                                             </li>
                                             <li>
                                                 <Link to="/contato">Contato</Link>

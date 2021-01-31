@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Item } from './styled';
-import Loading from '../../Loading';
+import {Loading} from '../../Loading';
 import { isLogged } from '../../../helpers/AuthHandler'
 import { BASEAPIIMAGE } from '../../../helpers/SalatoAPI'
 

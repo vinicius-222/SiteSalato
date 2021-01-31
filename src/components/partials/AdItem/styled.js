@@ -16,7 +16,8 @@ a{
     background-color:#FFF;
     height:auto;
     transition:all ease .2s;
-
+    
+    
     &:hover {
         background-color:#EEE;
         border:1px solid #FF0000;
@@ -36,8 +37,9 @@ a{
     }
 
     .itemName {
-        font-weight:bold;
-        font-size:14px;
+        font-size:16px;
+        color:#999;
+        font-family:Omnes, sans-serif;
         text-align:center;
         height:50px;
     }
@@ -50,12 +52,13 @@ a{
         justify-content:center;
         align-items:center;
         width:80px;
-        height:28px;
+        height:30px;
         border-radius:14px;
         background-color:#FF0000;
         font-weight:bold;
         font-size:12px;
-        color:#FFF;
+        color:#EEE;
+        font-family:Omnes, sans-serif;
     }
 }
 

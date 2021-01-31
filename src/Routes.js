@@ -12,6 +12,11 @@ import Login from './pages/Login';
 import Calculadora from './pages/Calculadora';
 import Redefinir from './pages/Redefinir';
 import Recuperar from './pages/Recuperar';
+import MinhaConta from './pages/MinhaConta';
+import Senha from './pages/Senha';
+import Email from './pages/Email';
+import Endereco from './pages/Endereco';
+import Lojas from './pages/Lojas';
 
 export default () => {
     return(
@@ -24,6 +29,9 @@ export default () => {
             </RouteHandler>
             <RouteHandler exact path='/Produtos'>
                 <Produtos />
+            </RouteHandler>
+            <RouteHandler exact path='/lojas'>
+                <Lojas />
             </RouteHandler>
             <RouteHandler exact path='/Contato'>
                 <Contato />
@@ -42,6 +50,18 @@ export default () => {
             </RouteHandler>
             <RouteHandler exact path='/Recuperar'>
                 <Recuperar />
+            </RouteHandler>
+            <RouteHandler exact private path='/MinhaConta'>
+                <MinhaConta />
+            </RouteHandler>
+            <RouteHandler exact private path='/Senha'>
+                <Senha />
+            </RouteHandler>
+            <RouteHandler exact private path='/Email'>
+                <Email />
+            </RouteHandler>
+            <RouteHandler exact private path='/Endereco'>
+                <Endereco />
             </RouteHandler>
             <RouteHandler>
                 <Login />

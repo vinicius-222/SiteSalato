@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import { SearchArea, PageArea, Fake } from './styled';
 import { Slide} from 'react-slideshow-image';
 import useApi from '../../helpers/SalatoAPI'

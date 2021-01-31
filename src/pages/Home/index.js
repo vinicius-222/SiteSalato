@@ -5,7 +5,7 @@ import { SearchArea, PageArea } from './styled';
 import Cookies from 'js-cookie';
 import { isLogged } from '../../helpers/AuthHandler';
 import { Slide} from 'react-slideshow-image';
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import  useApi, { BASEAPIIMAGE } from '../../helpers/SalatoAPI'
 import { PageContainer } from '../../components/MainComponents';
 import AdItem from '../../components/partials/AdItem';
@@ -17,6 +17,9 @@ const Page =  (props) => {
     const [getImg, setgetImg] = useState({"Produtos":[
                                             {"IdProduto":"235","CdChamada":"000237","NmProduto":"Bolinha de  4 Queijos  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"16.0","LinckImage":"Banner02.jpeg","DsTitulo":"Banner geral"},
                                             {"IdProduto":"359","CdChamada":"000361","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner03.jpeg","DsTitulo":"Bolinha de Carne Seca"}]});
+    
+
+                                        
     useEffect(()=>{
 
         const getProduto = async () => {
@@ -31,9 +34,21 @@ const Page =  (props) => {
             
         }
 
+        const getDadosCliente = async () =>{
+            const json = await api.getClienteDelivery(
+                Cookies.get('token'),
+                Cookies.get('hash')
+            )
+        
+            if (json.error === ""){
+               props.setDadosCliente(json.Cliente);
+            }
+        }
+
         getProduto();
         if (isLogged()){
             getQtCartCompra();
+            getDadosCliente();
         }
         
     },[]);
@@ -132,7 +147,8 @@ const mapDispatchToProps = (dispatch) => {
     return{
         setNome:(nome)=>dispatch({type:'SET_NOME', payload:{nome}}),
         setQt:(qt)=>dispatch({type:'SET_QT', payload:{qt}}),
-        setStCart:(StCart)=>dispatch({type:'SET_CART', payload:{StCart}})
+        setStCart:(StCart)=>dispatch({type:'SET_CART', payload:{StCart}}),
+        setDadosCliente:(DadosCliente)=>dispatch({type:'SET_DADOSCLIENTE', payload:{DadosCliente}})
 
     }
 }

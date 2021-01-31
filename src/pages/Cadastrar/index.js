@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { SearchArea } from './styled';
 import useApi from '../../helpers/SalatoAPI'
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import { PageContainer, ErrorMessage, SucessoMessage, PageTitle  } from '../../components/MainComponents';
 import { doLogin } from '../../helpers/AuthHandler';
 

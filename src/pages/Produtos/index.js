@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { SearchArea, PageArea} from './styled';
 import useApi, {BASEAPIIMAGE} from '../../helpers/SalatoAPI'
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import { isLogged } from '../../helpers/AuthHandler';
 import { PageContainer } from '../../components/MainComponents';
 import AdItem from '../../components/partials/AdItem';
@@ -46,8 +46,8 @@ const Page =  (props) => {
     const [DsEndereco, setDsEndereco] = useState([]);
  
     const getGrupoProduto = async () => {
-        const json = await api.getGrupoProduto();
-        console.log(json);
+        const json = await api.getGrupoProduto(1, 0);
+        console.log(json.GrupoProduto);
         setAddGRupo(json.GrupoProduto);
     }
 
@@ -246,10 +246,10 @@ const Page =  (props) => {
 
         SomaValoresTotais()
         .then((r) => {
-            let desconto = r * 0.10;
-            setVlDesconto(desconto);
+            let taxa = 4
+            setVlDesconto(taxa);
             setVlSubTotal(r);
-            setVlTotalProduto(r-desconto);
+            setVlTotalProduto(r+taxa);
         })   
     }
 
@@ -313,8 +313,9 @@ const Page =  (props) => {
         } else {
             setPageCount( 0 );
         }
-        
-    }, [ProdutoTotal]);
+        console.log(addInfo.length)
+        console.log(ProdutoTotal);
+    },[ProdutoTotal]);
 
     useEffect(() =>{
         setStLoading(true);
@@ -343,10 +344,19 @@ const Page =  (props) => {
             getCarCompra();
         }
     },[logged])
+
+    useEffect(() => {
+        if (currentPage !== 1){
+            setCurrentPage(1);
+        }else {
+            getInfoProduto();
+        }
+       
+    },[idGrupoProduto])
     
     let pagination = [];
     for(let i=1;i<=pageCount;i++) {
-        pagination.push(i);   
+        pagination.push(i); 
     }
     return(
         <> 
@@ -377,23 +387,14 @@ const Page =  (props) => {
                         </div>
                     </div>
                     <div className="LocalizacaoArea">
-                        <form onSubmit={getPesquisa} >
-                            <input 
-                                maxlength='8'
-                                type="text" 
-                                name="NmProduto" 
-                                value={NmProduto}
-                                onChange={e=>setNmProduto(e.target.value)} 
-                                placeholder="Digite um produto para pesquisa"
-                            />
-                            
-                            <select type="text"   value={idGrupoProduto} onChange={e=>setIdGrupoProduto(e.target.value)}>
-                                {addGrupo.map((i, k)=>
-                                    <option  value={i.IdGrupoProduto} key={k} placeholder="Selecione um estado">{i.DsGrupoProduto}</option>
-                                )}
-                            </select>
-                            <button>Pesquisar</button>
-                        </form>
+                        <div className="Grupo">
+                        {addGrupo.map((i, k)=>
+                            <div className={i.IdGrupoProduto == idGrupoProduto ? "ItemGrupo ItemGrupo--ativo" : "ItemGrupo ItemGrupo--inativo"} onClick={()=>setIdGrupoProduto(i.IdGrupoProduto)}>
+                                <img src={BASE+i.DsImagemSite} />
+                                <div className="ItemTitulo">{i.DsGrupoProduto}</div>
+                            </div>   
+                        )} 
+                        </div>
                     </div>
                 </PageContainer>
             </SearchArea>
@@ -426,40 +427,6 @@ const Page =  (props) => {
                         <div class="cart--area">
                             <div onClick={()=>props.setStCart(false)} class="menu-closer1">❌</div>
                             <div onClick={()=>props.setStCart(false)} class="menu-closer2">Continuar Comprando</div>
-                            <h3>Consulte a entrega:</h3>
-                            <div className="cart--cep">
-                                <form onSubmit={e=> e.preventDefault()} className="cart--cepInfo">
-                                    <input
-                                        type="tel" 
-                                        name="DsCEP" 
-                                        value={DsCEP}
-                                        onChange={e=>setCEP(e.target.value)}
-                                        placeholder="Digite um CEP"
-                                    />
-                                </form>
-                                {DsCEP.length >= 10 && DsCEP.length <= 11 &&
-                                    <div className="cart--check">
-                                        <img src={require('../../assets/images/check.png')} />
-                                    </div>
-                                }
-                                {DsCEP.length > 0 && DsCEP.length < 10 &&
-                                    <div className="cart--check">
-                                        <img src={require('../../assets/images/delete.png')} />
-                                    </div>
-                                }
-                                {StLoadingCEP && 
-                                    <div className="cart--loadingCEP">
-                                        <Loading  height="15px" width="15px" color="#FF0000"/>    
-                                    </div>
-                                }
-                            </div>
-                            {DsEndereco.bairro && 
-                                <div className="cart--end">
-                                    {`${DsEndereco.tipo_logradouro} ${DsEndereco.logradouro} `}<br/>
-                                    {` Bairro: ${DsEndereco.bairro}`}  <br/>
-                                    {`Cidade: ${DsEndereco.cidade} / UF:${DsEndereco.uf} `}
-                                </div>
-                            }
                             <h1>Seu Carrinho</h1>
                             <div class="cart">
                             {List.map((i,k)=>
@@ -491,7 +458,7 @@ const Page =  (props) => {
                                     <span>R$ {parseFloat(vlSubTotal).toFixed(2)}</span>
                                 </div>
                                 <div class="cart--totalitem desconto">
-                                    <span>Desconto (-10%)</span>
+                                    <span>Taxa de Entrega</span>
                                     <span>R$ {vlDesconto.toFixed(2)}</span>
                                 </div>
                                 <div class="cart--totalitem total big">

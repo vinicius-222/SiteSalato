@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import { Link } from 'react-router-dom';
 import { SearchArea } from './styled';
 import useApi from '../../helpers/SalatoAPI'
 import { PageContainer, ErrorMessage, SucessoMessage,  PageTitle  } from '../../components/MainComponents';
 import { doLogin } from '../../helpers/AuthHandler';
+import Cookies from 'js-cookie';
 
 const Page =  (props) => {
     const api = useApi();
@@ -16,7 +17,6 @@ const Page =  (props) => {
     const [error, setError] = useState('');
     const [sucess, setsucess] = useState('');
     
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setDisabled(true);
@@ -98,7 +98,8 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        setNome:(nome)=>dispatch({type:'SET_NOME', payload:{nome}})
+        setNome:(nome)=>dispatch({type:'SET_NOME', payload:{nome}}),
+        setDadosCliente:(DadosCliente)=>dispatch({type:'SET_DADOSCLIENTE', payload:{DadosCliente}})
 
     }
 }

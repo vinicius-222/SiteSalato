@@ -6,7 +6,7 @@ export const Fake = styled.div`
 `;
 
 export const SearchArea = styled.div`
-background-color:#DDD;
+background-color:#FFF;
 border-bottom:1px solid #CCC;
 padding:20px 0;
 
@@ -127,50 +127,52 @@ padding:20px 0;
     }
 
     .LocalizacaoArea{
-        background-color:#FF0000;
-        padding:20px 15px;
+        flex-direction:column;
+        padding:0px;
         border-radius:5px;
         box-shadow:1px 1px 1px 0.3px rbga(0,0,0,0.2);
         display:flex;
+        flex-wrap:wrap;
+        cursor:pointer;
 
-        form{
+        h2{
+            color:tomato;
+            padding:0px 10px;
+            margin:0px;
+            font-size:20px;
+        }
+
+        .Grupo{
             display:flex;
-            flex:1;
+            flex-direction:row;
+            justify-content:space-between;
+            flex-wrap:wrap;
 
-            input, select{
-                height:42px;
-                margin-right:10px;
-                border-radius:5px;
-                border:1px solid #CCC;
-                outline:0;
-                font-size:15px;
-                color:#000;
-
-            }
-            input {
-                flex:1;
-                padding:0 10px;
-            }
+            .ItemGrupo{
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                background-color:#FFF;
+                width:150px;
+                height:150px;
+                border-radius:75px;
+                transition:all ease .5s;
+                img{
+                    height:70px;
+                }
     
-            select {
-                width:370px;
-                .AreaOption{
-                    height:20px;
+                .ItemTitulo{
+                    color:tomato;
                 }
             }
-
-            button{
-                background-color:#0089FF;
-                font-size:15px;
-                border:0;
-                border-radius:5px;
-                color:#FFF;
-                height:40px;
-                padding:0 20px;
-                cursor:pointer;
+    
+            .ItemGrupo--ativo{
+                border:1px solid #FF0000;
             }
-            button:hover{
-                background-color:#006FCE;
+    
+            .ItemGrupo--inativo{
+                border:1px solid #CCC;
             }
         }
     }
@@ -179,23 +181,11 @@ padding:20px 0;
     .LocalizacaoArea{
         height:auto;
 
-        form{
-            flex-direction:column;
-            
-            input, select{
-                height:42px;
-                flex:none;
+        .Grupo{
+           
+            .ItemGrupo{
+                margin:10px 20px;
             }
-            input {
-                width:100%;
-                margin-bottom:10px;
-            }
-    
-            select {
-                width:100%;
-                margin-bottom:10px;
-            }
-
         }
     }  
 }
@@ -216,23 +206,11 @@ padding:20px 0;
     .LocalizacaoArea{
         height:auto;
 
-        form{
-            flex-direction:column;
-            
-            input, select{
-                height:42px;
-                flex:none;
+        .Grupo{
+           
+            .ItemGrupo{
+                margin:10px 10px;
             }
-            input {
-                width:100%;
-                margin-bottom:10px;
-            }
-    
-            select {
-                width:100%;
-                margin-bottom:10px;
-            }
-
         }
     }
 }

@@ -1,7 +1,7 @@
 import React, { useState }from 'react';
 import { PageContainer, ErrorMessage, SucessoMessage,  PageTitle  } from '../../components/MainComponents';
 import SalatoAPI  from '../../helpers/SalatoAPI';
-import Loading from '../../components/Loading';
+import {Loading} from '../../components/Loading';
 import {
     Container
 } from './styled';
