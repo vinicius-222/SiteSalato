@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { SearchArea, PageArea} from './styled';
-import useApi, {BASEAPIIMAGE} from '../../helpers/SalatoAPI'
+import useApi, {BASEAPIIMAGE, IMAGE} from '../../helpers/SalatoAPI'
 import {Loading} from '../../components/Loading';
 import { isLogged } from '../../helpers/AuthHandler';
 import { PageContainer } from '../../components/MainComponents';
@@ -365,7 +365,7 @@ const Page =  (props) => {
                     <div style={{display: modalIsOpen ? 'flex' : 'none'}} class="WindowArea" > 
                         <div  class="WindowBody">
                             <div class="ProdutoBig">
-                                <img src={BASE+srcLinck} />
+                                <img src={IMAGE+srcLinck} />
                             </div>
                             <div class="ProdutoInfo">
                                 <h2>{DsNmProduto}</h2>
@@ -390,7 +390,7 @@ const Page =  (props) => {
                         <div className="Grupo">
                         {addGrupo.map((i, k)=>
                             <div className={i.IdGrupoProduto == idGrupoProduto ? "ItemGrupo ItemGrupo--ativo" : "ItemGrupo ItemGrupo--inativo"} onClick={()=>setIdGrupoProduto(i.IdGrupoProduto)}>
-                                <img src={BASE+i.DsImagemSite} />
+                                <img src={IMAGE+i.DsImagemSite} />
                                 <div className="ItemTitulo">{i.DsGrupoProduto}</div>
                             </div>   
                         )} 
@@ -432,7 +432,7 @@ const Page =  (props) => {
                             {List.map((i,k)=>
                                 <div className="cart--itens">
                                     <div className="cart--products">
-                                        <img src={BASE+i.LinckImage} />
+                                        <img src={IMAGE+i.LinckImage} />
                                         <span>{i.NmProduto}</span>
                                     </div>
                                     <div class="ProdutoInfo--pricearea">

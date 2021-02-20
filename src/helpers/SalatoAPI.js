@@ -5,6 +5,7 @@ import { doLogout } from '../helpers/AuthHandler';
 //const URL = 'http://192.168.1.65';
 const URL = 'http://138.99.15.234:20003';
 const BASEAPI = URL+'/backEndSalato/';
+export const IMAGE = BASEAPI+'Images/';
 export const BASEAPIIMAGE = URL+'/images/';
 
 const apiFetchFile = async (endpoint, body) => {

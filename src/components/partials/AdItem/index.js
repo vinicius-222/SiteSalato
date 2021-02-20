@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Item } from './styled';
 import {Loading} from '../../Loading';
 import { isLogged } from '../../../helpers/AuthHandler'
-import { BASEAPIIMAGE } from '../../../helpers/SalatoAPI'
+import { BASEAPIIMAGE, IMAGE } from '../../../helpers/SalatoAPI'
 
 
 const BASE = BASEAPIIMAGE;
@@ -18,7 +18,7 @@ export default (props) => {
     useEffect(() => {
         const LoadImg = async () =>{
             let img = new Image;
-            img.src = `${BASE}${props.data.LinckImage}`;
+            img.src = `${IMAGE}${props.data.LinckImage}`;
             img.onload = () => {
                 setStLoading(true);
             }
@@ -32,7 +32,7 @@ export default (props) => {
             <Link>
                 <div className="itemImage">
                     {!stLoading && <Loading height="50px" width="50px"/> }
-                    {stLoading && <img src={`${BASE}${props.data.LinckImage}`} alt="" /> }
+                    {stLoading && <img src={`${IMAGE}${props.data.LinckImage}`} alt="" /> }
                 </div>
                 <div className="AreaDetail">
                     <div className="itemName">{props.data.DsTitulo}</div>
