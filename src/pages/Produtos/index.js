@@ -47,8 +47,8 @@ const Page =  (props) => {
  
     const getGrupoProduto = async () => {
         const json = await api.getGrupoProduto(1, 0);
-        console.log(json.GrupoProduto);
         setAddGRupo(json.GrupoProduto);
+        
     }
 
     const getInfoProduto = async () => {
@@ -313,8 +313,7 @@ const Page =  (props) => {
         } else {
             setPageCount( 0 );
         }
-        console.log(addInfo.length)
-        console.log(ProdutoTotal);
+        
     },[ProdutoTotal]);
 
     useEffect(() =>{
@@ -333,6 +332,7 @@ const Page =  (props) => {
         if(Cookies.get('CEP')){
             setDsCEP(Cookies.get('CEP'));
         }
+
     },[])
 
     useEffect(() => {

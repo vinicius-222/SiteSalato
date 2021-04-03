@@ -229,9 +229,7 @@ const MinhaConta = (props) => {
                                 <div className="area--data">
                                 <DatePicker
                                     selected={DtNascimento}
-                                    onChange={(e) => setDtNascimento(e)}
-                                   
-                                    peekNextMonth
+                                    onChange={(e)=>setDtNascimento(e)}
                                     showMonthDropdown
                                     showYearDropdown
                                     dropdownMode="select"

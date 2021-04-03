@@ -3,7 +3,7 @@ const initialState = {
     qt:0,
     StCart:false,
     DadosCliente:[],
-    DadosEndereco:[]
+    DadosEndereco:[],
 };
 
 export default (state = initialState, action) => {

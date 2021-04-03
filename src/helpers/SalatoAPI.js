@@ -289,7 +289,6 @@ const SalatoAPI = {
             '/user/handleRecuperaSenha',
             {token}
         )
-        console.log(json);
         return json;
     },
 

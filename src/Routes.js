@@ -17,6 +17,7 @@ import Senha from './pages/Senha';
 import Email from './pages/Email';
 import Endereco from './pages/Endereco';
 import Lojas from './pages/Lojas';
+import Raspadinha from './pages/Raspadinha';
 
 export default () => {
     return(
@@ -62,6 +63,9 @@ export default () => {
             </RouteHandler>
             <RouteHandler exact private path='/Endereco'>
                 <Endereco />
+            </RouteHandler>
+            <RouteHandler exact path='/raspadinha'>
+                <Raspadinha/>
             </RouteHandler>
             <RouteHandler>
                 <Login />

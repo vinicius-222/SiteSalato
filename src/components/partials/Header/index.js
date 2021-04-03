@@ -19,7 +19,7 @@ const Header = (props) => {
 
 
     return (
-        <HeaderArea>
+        <HeaderArea style={{display : window.location.pathname === '/raspadinha' ? 'none' : 'flex'}}>
             <div className="container">
                 <div className="logo">
                     <Link to="/">
@@ -231,7 +231,8 @@ const mapStateToProps = (state) => {
     return{
         nome:state.user.nome,
         qt:state.user.qt,
-        StCart:state.user.StCart
+        StCart:state.user.StCart,
+        DisplayNone:state.user.DisplayNone,
     }
 }
 

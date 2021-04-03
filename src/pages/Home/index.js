@@ -16,7 +16,8 @@ const Page =  (props) => {
     const [adInfo, setAdInfo] = useState({});
     const [getImg, setgetImg] = useState({"Produtos":[
                                             {"IdProduto":"235","CdChamada":"000237","NmProduto":"Bolinha de  4 Queijos  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"16.0","LinckImage":"Banner02.jpeg","DsTitulo":"Banner geral"},
-                                            {"IdProduto":"359","CdChamada":"000361","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner03.jpeg","DsTitulo":"Bolinha de Carne Seca"}]});
+                                            {"IdProduto":"359","CdChamada":"000361","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner03.jpeg","DsTitulo":"Bolinha de Carne Seca"},
+                                            {"IdProduto":"358","CdChamada":"000360","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner04.jpg","DsTitulo":"Bolinha de Carne Seca"}]});
     
 
                                         
