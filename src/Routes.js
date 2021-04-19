@@ -18,6 +18,7 @@ import Email from './pages/Email';
 import Endereco from './pages/Endereco';
 import Lojas from './pages/Lojas';
 import Raspadinha from './pages/Raspadinha';
+import RegulamentoRaspadinha from './pages/RegulamentoRaspadinha';
 
 export default () => {
     return(
@@ -66,6 +67,9 @@ export default () => {
             </RouteHandler>
             <RouteHandler exact path='/raspadinha'>
                 <Raspadinha/>
+            </RouteHandler>
+            <RouteHandler exact path='/regulamentoraspadinha'>
+                <RegulamentoRaspadinha/>
             </RouteHandler>
             <RouteHandler>
                 <Login />

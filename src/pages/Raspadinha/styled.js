@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import back from '../../assets/images/Fundo.jpg';
 import backForm from '../../assets/images/FundoForm.png';
 
+export const Check = styled.div`
+    color:#FF0000;
+    margin-left:5px;
+`;
 export const Container = styled.div`
     display:flex;
     background-image:url(${back});
@@ -9,27 +13,38 @@ export const Container = styled.div`
     background-position: center;
     flex-direction:column;
     height:1000px;
+    background-size: cover;
+    position: relative;
 
-    .topo{
+    .fundoTopo{
         display:flex;
-        margin-top:50px;
-        background-color:#FF0000;
+        margin-top:40px;
+        background-color:#FFFF00;
         width:100%;
-        height:150px;
+        height:165px;
         align-items:center;
         justify-content:center;
 
-        .logo {
-            resize-mode:contain;
-            width:250px;
-            height:auto;
-
-        }
-
-        .promocao{
-            resize-mode:contain;
-            width:450px;
-            height:auto;
+        .topo{
+            display:flex;
+            background-color:#FF0000;
+            width:100%;
+            height:150px;
+            align-items:center;
+            justify-content:center;
+    
+            .logo {
+                resize-mode:contain;
+                width:250px;
+                height:auto;
+    
+            }
+    
+            .promocao{
+                resize-mode:contain;
+                width:450px;
+                height:auto;
+            }
         }
     }
 
@@ -39,21 +54,31 @@ export const Container = styled.div`
         align-items:center;
         height:350px;
 
+        .areaAviso{
+            background-color:#FF0000;
+            width:300px;
+            height:300px;
+            border-radius:150px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:#FFFF00;
+            font-size:28px;
+            text-align:center;
+            opacity:0.9;
+
+        }
         form{
             display:flex;
             justify-content:center;
             align-items:flex-end;
             flex-direction:column;
-            background-color:#FFF;
-            width:500px;
-            height:330px;
+            background-color:#EEE;
+            width:520px;
+            height:400px;
+            margin-top:70px;
             border-radius:10px;
-            opacity:1;
-            background-image:url(${backForm});
-            background-repeat: no-repeat;
-            background-size:contain;
-            background-position: center;
-
+            opacity:0.94;
 
             .area{
                 display:flex;
@@ -78,6 +103,11 @@ export const Container = styled.div`
 
                     }
 
+                }
+
+                .area--title{
+                    display:flex;
+                    flex-direction:row;
                 }
 
                 .area--data{
@@ -200,30 +230,33 @@ export const Container = styled.div`
     }
 
 @media (max-width:800px){
-    .topo{
+    .fundoTopo{
         flex-direction:column;
-        height:300px;
-
-        .logo{
-            margin:10px;
+        height:320px;
+        .topo{
+            flex-direction:column;
+            height:300px;
+    
+            .logo{
+                margin:10px;
+            }
+    
+            .promocao{
+                margin:20px;
+                width:300px;
+            }
+    
         }
-
-        .promocao{
-            margin:20px;
-            width:300px;
-        }
-
     }
 
     .corpo{
         margin-top:10px;
-        height:480px;
+        height:550px;
         form{
-            height:480px;
-            margin:20px;
+            height:530px;
+            margin:0px 20px;
             align-items:center;
-            background-size:cover;
-            
+            padding:0px 30px;
 
             .area{
                 flex-direction:column;

@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.320922bc.chunk.css",
-    "main.js": "/static/js/main.2b0e4798.chunk.js",
-    "main.js.map": "/static/js/main.2b0e4798.chunk.js.map",
+    "main.js": "/static/js/main.62f50990.chunk.js",
+    "main.js.map": "/static/js/main.62f50990.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.baeb1881.js",
     "runtime-main.js.map": "/static/js/runtime-main.baeb1881.js.map",
     "static/css/2.1b112e9f.chunk.css": "/static/css/2.1b112e9f.chunk.css",
-    "static/js/2.a408b8d7.chunk.js": "/static/js/2.a408b8d7.chunk.js",
-    "static/js/2.a408b8d7.chunk.js.map": "/static/js/2.a408b8d7.chunk.js.map",
+    "static/js/2.8ba6a3bc.chunk.js": "/static/js/2.8ba6a3bc.chunk.js",
+    "static/js/2.8ba6a3bc.chunk.js.map": "/static/js/2.8ba6a3bc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.84403d85e3f68bf077c3845a860f24b1.js": "/precache-manifest.84403d85e3f68bf077c3845a860f24b1.js",
+    "precache-manifest.40bc6bb1cbbaa164f9a3e0a7346036e0.js": "/precache-manifest.40bc6bb1cbbaa164f9a3e0a7346036e0.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.1b112e9f.chunk.css.map": "/static/css/2.1b112e9f.chunk.css.map",
     "static/css/main.320922bc.chunk.css.map": "/static/css/main.320922bc.chunk.css.map",
-    "static/media/Fundo.jpg": "/static/media/Fundo.b312f83f.jpg",
+    "static/media/Fundo.jpg": "/static/media/Fundo.619cf343.jpg",
     "static/media/FundoForm.png": "/static/media/FundoForm.1f140cda.png",
     "static/media/Logo.png": "/static/media/Logo.97da2b14.png",
     "static/media/LogoLandPage.png": "/static/media/LogoLandPage.6cba3c6f.png",
@@ -21,6 +21,7 @@
     "static/media/App.css": "/static/media/bariol-regular-webfont.256143b2.ttf",
     "static/media/email.png": "/static/media/email.4880430b.png",
     "static/media/facebook.png": "/static/media/facebook.1d93ed4e.png",
+    "static/media/historia.jpg": "/static/media/historia.79c066a1.jpg",
     "static/media/home.png": "/static/media/home.aa9b851f.png",
     "static/media/instagram.png": "/static/media/instagram.cfaf4397.png",
     "static/media/telefone-icone-png.png": "/static/media/telefone-icone-png.47bb2642.png",
@@ -29,8 +30,8 @@
   "entrypoints": [
     "static/js/runtime-main.baeb1881.js",
     "static/css/2.1b112e9f.chunk.css",
-    "static/js/2.a408b8d7.chunk.js",
+    "static/js/2.8ba6a3bc.chunk.js",
     "static/css/main.320922bc.chunk.css",
-    "static/js/main.2b0e4798.chunk.js"
+    "static/js/main.62f50990.chunk.js"
   ]
 }

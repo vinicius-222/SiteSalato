@@ -1,62 +1,141 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import { connect } from 'react-redux';
-import { Container } from './styled';
+import { Container, Check } from './styled';
+import {LoadTela} from '../../components/Loading';
 import { TELMask, CELMask, cpfMask, rgMask } from '../../components/Mask';
+import useSalatoDeliveryAPI from '../../helpers/SalatoAPI';
 
 const Raspadinha = (props) =>{
-
+    const API = useSalatoDeliveryAPI();
     const [Nome, setNome] = useState('');
     const [Email, setEmail] = useState('');
     const [Telefone, setTelefone] = useState('');
     const [DataNasc, setDataNasc] = useState();
     const [TpSexo, setTpSexo] = useState('');
     const [TpEstadoCivil, setTpEstadoCivil] = useState('');
+    const [StLoad, setStLoad] = useState(false);
+    const [StForm, setStForm] = useState(false);
+    const [Msg, setMsg] = useState('');
+    const [Loja, setLoja] = useState('');
 
     useEffect(()=>{
 
     },[])
 
+    const HandleEnviar = async (e) => {
+        e.preventDefault();
+        VerificaCampos().then(async(r)=>{
+            if(!r){
+                alert('Verifique os campos obrogatorios (*) !');
+                return
+            }else{
+                setStLoad(true);
+                setStForm(true);
+                const json = await API.insertClientePromocao(
+                    Nome,
+                    Email,
+                    Telefone,
+                    DataNasc,
+                    TpEstadoCivil,
+                    TpSexo,
+                    Loja
+                )
+        
+                setTimeout(()=>{
+                    if(json.retorno){
+                        setStLoad(false);
+                        setMsg(json.retorno);
+                    }
+                    return json;
+                },3000)
+            }
+        })
+    }
+
+    const VerificaCampos = () =>{
+        let r =  new Promise((resolve, reject) =>{
+            if (!Nome){
+                resolve(false);
+            }else if(!Email){
+                resolve(false);
+            }else if(!Telefone){
+                resolve(false);
+            }else if(!DataNasc){
+                resolve(false);
+            }else if(!TpSexo){
+                resolve(false);
+            }else if(!TpEstadoCivil){
+                resolve(false);
+            }else if(!Loja){
+                resolve(false);
+            }else{
+                resolve(true);
+            }
+        })
+        return r;
+    }
+
     return(
         <Container>
-            <div className="topo">
-                <img className="logo" src={require('../../assets/images/LogoLandPage.png')}/>
-                <img className="promocao" src={require('../../assets/images/Promocao.png')}/>
+            <div className="fundoTopo">
+                <div className="topo">
+                    <img className="logo" src={require('../../assets/images/LogoLandPage.png')}/>
+                    <img className="promocao" src={require('../../assets/images/Promocao.png')}/>
+                </div>
             </div>
             <div className="corpo">
-                <form>
+                {StLoad &&  <LoadTela visible={StLoad} color="#FF0000" height="60px" width="60px" />}
+                <div className="areaAviso" style={{display:Msg ? "flex" : "none"}} >{Msg}</div>
+                <form onSubmit={HandleEnviar} style={{display:!StForm ? "flex" : "none"}}>
                     <label className="area">
-                        <div className="area--title">Nome Completo</div>
+                        <div className="area--title">
+                            <div>Nome Completo </div>
+                            <Check>*</Check>
+                        </div>
+                        
                         <div className="area--input">
                             <input
                                 type="text"
                                 value={Nome}
                                 onChange={(e)=>setNome(e.target.value)}
+                                required
                             />
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">E-mail</div>
+                        <div className="area--title">
+                            <div>E-mail</div>
+                            <Check>*</Check>
+                        </div>
                         <div className="area--input">
                             <input
                                 type="email"
                                 value={Email}
                                 onChange={(e)=>setEmail(e.target.value)}
+                                required
                             />
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">Telefone</div>
+                        <div className="area--title">
+                            <div>Telefone</div>
+                            <Check>*</Check>
+                        </div>
                         <div className="area--input">
                             <input 
                                 type="tel" 
                                 value={CELMask(Telefone)}
                                 onChange={(e)=>setTelefone(e.target.value)}
+                                required
                             />
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">Data Nascimento</div>
+                        <div className="area--title">
+                            <div>Data Nascimento</div>
+                            <Check>*</Check>
+                        </div>
                         <div className="area--data">
                         <DatePicker
                             selected={DataNasc}
@@ -66,11 +145,15 @@ const Raspadinha = (props) =>{
                             showYearDropdown
                             dropdownMode="select"
                             dateFormat="dd/MM/yyyy"
+                            required
                         />
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">Sexo</div>
+                        <div className="area--title">
+                            <div>Sexo</div>
+                            <Check>*</Check>
+                        </div>
                         <div className="area--areaButton1">
                             <div onClick={()=>setTpSexo('1')} className={TpSexo === '1' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Masculino</div>
                             <div onClick={()=>setTpSexo('2')} className={TpSexo === '2' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Feminino</div>
@@ -78,7 +161,10 @@ const Raspadinha = (props) =>{
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">Estado Civil</div>
+                        <div className="area--title">
+                            <div>Estado Civil</div>
+                            <Check>*</Check>
+                        </div>
                         <div className="area--areaButton2">
                             <div onClick={()=>setTpEstadoCivil('C')} className={TpEstadoCivil === 'C' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Casado</div>
                             <div onClick={()=>setTpEstadoCivil('S')} className={TpEstadoCivil === 'S' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Solteiro</div>
@@ -89,8 +175,18 @@ const Raspadinha = (props) =>{
                         </div>
                     </label>
                     <label className="area">
+                        <div className="area--title">
+                            <div>Loja de sua preferêcia</div>
+                            <Check>*</Check>
+                        </div>
+                        <div className="area--areaButton2">
+                            <div onClick={()=>setLoja('M')} className={Loja === 'M' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Loja Magé</div>
+                            <div onClick={()=>setLoja('P')} className={Loja === 'P' ? "area--btn btnAtivo" : "area--btn btnInativo"}>Loja Piabeta</div>
+                        </div>
+                    </label>
+                    <label className="area">
                         <div className="area--btn">
-                            <button >Participar</button>
+                            <button>Participar</button>
                         </div>
                     </label>
                 </form>

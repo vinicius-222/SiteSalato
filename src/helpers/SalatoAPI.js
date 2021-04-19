@@ -61,7 +61,6 @@ const apiFetchPost = async (endpoint, body) => {
         body:JSON.stringify(body)
     });
     const json = await res.json();
-
     if(json.error) {
         doLogout();
         window.location.href = '/Login';
@@ -373,6 +372,14 @@ const SalatoAPI = {
         const json = await apiFetchGet(
             '/user/getEndereco',
             {"jwt":jwt}
+        )
+        return json;
+    },
+
+    insertClientePromocao:async (NmPessoa, DsLogin, DsFaxCobranca, DtNascimento, TpEstadoCivil, TpSexo, Loja) => {
+        const json = await apiFetchPost(
+            '/cliente/newClientePromocao',
+            {NmPessoa, DsLogin, DsFaxCobranca, DtNascimento, TpEstadoCivil, TpSexo, Loja}
         )
         return json;
     },

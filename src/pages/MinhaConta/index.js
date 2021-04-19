@@ -44,12 +44,35 @@ const MinhaConta = (props) => {
 
 
     const getPreencheCliente = async () =>{
+        console.log(props.DadosCliente[0].NmPessoa);
 
-        setNmPessoa(props.DadosCliente[0].NmPessoa)
-        setCPF(cpfMask(props.DadosCliente[0].CdCPF_CNPJ));
-        setRG(rgMask(props.DadosCliente[0].NrIdentidade));
-        setTelefone(TELMask(props.DadosCliente[0].DsTeleFoneCobranca));
-        setCelular(CELMask(props.DadosCliente[0].DsFaxCobranca));
+        setNmPessoa(props.DadosCliente[0].NmPessoa);
+        
+        if (props.DadosCliente[0].CdCPF_CNPJ){
+            setCPF(cpfMask(props.DadosCliente[0].CdCPF_CNPJ));
+        }else{
+            setCPF(cpfMask(""));
+        }
+        
+        if (props.DadosCliente[0].NrIdentidade){
+            setRG(rgMask(props.DadosCliente[0].NrIdentidade));
+        }else{
+            setRG(rgMask(""));
+        }
+
+        if (props.DadosCliente[0].DsTeleFoneCobranca){
+            setTelefone(TELMask(props.DadosCliente[0].DsTeleFoneCobranca));
+        }else{
+            setTelefone(TELMask(""));
+        }
+        
+        if (props.DadosCliente[0].DsFaxCobranca){
+            setCelular(CELMask(props.DadosCliente[0].DsFaxCobranca));
+        }else{
+            setCelular(CELMask(""));
+        }
+        
+        
         setTpSexo(props.DadosCliente[0].TpSexo);
         setTpEstadoCivil(props.DadosCliente[0].TpEstadoCivil);
         setCdChamada(props.DadosCliente[0].CdChamada);

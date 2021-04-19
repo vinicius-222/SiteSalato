@@ -36,11 +36,13 @@ const Page =  (props) => {
         }
 
         const getDadosCliente = async () =>{
+            console.log(Cookies.get('token'));
+            console.log(Cookies.get('hash'));
             const json = await api.getClienteDelivery(
                 Cookies.get('token'),
                 Cookies.get('hash')
             )
-        
+            console.log(json);
             if (json.error === ""){
                props.setDadosCliente(json.Cliente);
             }

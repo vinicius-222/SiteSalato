@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SearchArea, PageArea, Fake } from './styled';
-import { PageContainer } from '../../components/MainComponents';
+import { PageContainer, PageTitle } from '../../components/MainComponents';
 
 const Page =  (props) => {
 
     return(
        <SearchArea>
            <PageContainer>
+                <PageTitle>Nossa História</PageTitle>
                 <div className="Banner">
-                    <Fake height={300}/>
-                    historia
                 </div>
            </PageContainer>
        </SearchArea>
