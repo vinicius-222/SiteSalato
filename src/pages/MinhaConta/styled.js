@@ -40,7 +40,7 @@ export const Area = styled.div`
                         font-size:14px;
                         input{
                             color:#000;
-                            background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #FFF;  /* Imagem de fundo (Seta) */
+                            background: url(https://salato.com.br/backEndSalato/Images/ico-seta-appearance.gif) no-repeat #FFF;  /* Imagem de fundo (Seta) */
                             background-position: 100% center;  /*Posição da imagem do background*/
                             height:29px;
                             width:300px;

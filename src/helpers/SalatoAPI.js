@@ -3,10 +3,9 @@ import qs from 'qs';
 import { doLogout } from '../helpers/AuthHandler';
 
 //const URL = 'http://192.168.1.65';
-const URL = 'http://138.99.15.234:20003';
+const URL = 'https://salato.com.br';
 const BASEAPI = URL+'/backEndSalato/';
 export const IMAGE = BASEAPI+'Images/';
-export const BASEAPIIMAGE = URL+'/images/';
 
 const apiFetchFile = async (endpoint, body) => {
     if(!body.token) {
@@ -380,6 +379,14 @@ const SalatoAPI = {
         const json = await apiFetchPost(
             '/cliente/newClientePromocao',
             {NmPessoa, DsLogin, DsFaxCobranca, DtNascimento, TpEstadoCivil, TpSexo, Loja}
+        )
+        return json;
+    },
+
+    getImageTelaInicio:async(token) => {
+        const json = await apiFetchGet(
+            '/pedidos/getInfoTelaInicio',
+            {token}
         )
         return json;
     },

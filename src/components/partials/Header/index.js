@@ -79,6 +79,9 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
+                                            </li>
+                                            <li>
                                                 <Link to="/produtos">Cardápio</Link>
                                             </li>
                                             <li>
@@ -98,6 +101,9 @@ const Header = (props) => {
                                         <>  
                                             <li>
                                                 <Link to="/historia">História</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
                                             </li>
                                             <li>
                                                 <Link to="/produtos">Cardápio</Link>
@@ -129,6 +135,9 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
+                                            </li>
+                                            <li>
                                                 <Link to="/produtos">Cardápio</Link>
                                             </li>
                                             <li>
@@ -148,6 +157,9 @@ const Header = (props) => {
                                         <>  
                                             <li>
                                                 <Link to="/historia">História</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
                                             </li>
                                             <li>
                                                 <Link to="/produtos">Cardápio</Link>
@@ -179,6 +191,9 @@ const Header = (props) => {
                                                 <Link to="/historia">História</Link>
                                             </li>
                                             <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
+                                            </li>
+                                            <li>
                                                 <Link to="/produtos">Cardápio</Link>
                                             </li>
                                             <li>
@@ -198,6 +213,9 @@ const Header = (props) => {
                                         <>  
                                             <li>
                                                 <Link to="/historia">História</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/regulamentoraspadinha">Promocão</Link>
                                             </li>
                                             <li>
                                                 <Link to="/produtos">Cardápio</Link>

@@ -6,19 +6,15 @@ import Cookies from 'js-cookie';
 import { isLogged } from '../../helpers/AuthHandler';
 import { Slide} from 'react-slideshow-image';
 import {Loading} from '../../components/Loading';
-import  useApi, { BASEAPIIMAGE } from '../../helpers/SalatoAPI'
+import  useApi, { IMAGE } from '../../helpers/SalatoAPI'
 import { PageContainer } from '../../components/MainComponents';
 import AdItem from '../../components/partials/AdItem';
 
-const BASE = BASEAPIIMAGE;
+const BASE = IMAGE;
 const Page =  (props) => {
     const api = useApi();
     const [adInfo, setAdInfo] = useState({});
-    const [getImg, setgetImg] = useState({"Produtos":[
-                                            {"IdProduto":"235","CdChamada":"000237","NmProduto":"Bolinha de  4 Queijos  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"16.0","LinckImage":"Banner02.jpeg","DsTitulo":"Banner geral"},
-                                            {"IdProduto":"359","CdChamada":"000361","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner03.jpeg","DsTitulo":"Bolinha de Carne Seca"},
-                                            {"IdProduto":"358","CdChamada":"000360","NmProduto":"Bolinha de Carne Seca c Requeijao  KG  20 Gr","IdUnidadeVenda":"1","VlPreco":"18.0","LinckImage":"Banner04.jpg","DsTitulo":"Bolinha de Carne Seca"}]});
-    
+    const [getImg, setgetImg] = useState({});
 
                                         
     useEffect(()=>{
@@ -36,19 +32,25 @@ const Page =  (props) => {
         }
 
         const getDadosCliente = async () =>{
-            console.log(Cookies.get('token'));
-            console.log(Cookies.get('hash'));
             const json = await api.getClienteDelivery(
                 Cookies.get('token'),
                 Cookies.get('hash')
             )
-            console.log(json);
             if (json.error === ""){
                props.setDadosCliente(json.Cliente);
             }
         }
 
+        const getImageTelaInicial = async () =>{
+            const json = await api.getImageTelaInicio( 
+                Cookies.get('token')
+            );
+
+            setgetImg(json);
+        }
+
         getProduto();
+        getImageTelaInicial();
         if (isLogged()){
             getQtCartCompra();
             getDadosCliente();

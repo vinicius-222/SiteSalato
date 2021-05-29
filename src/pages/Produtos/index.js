@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { SearchArea, PageArea} from './styled';
-import useApi, {BASEAPIIMAGE, IMAGE} from '../../helpers/SalatoAPI'
+import useApi, {IMAGE} from '../../helpers/SalatoAPI'
 import {Loading} from '../../components/Loading';
 import { isLogged } from '../../helpers/AuthHandler';
 import { PageContainer } from '../../components/MainComponents';
@@ -12,7 +12,7 @@ import { CEPMask } from '../../components/Mask';
 
 let timer;
 let List = [];
-const BASE = BASEAPIIMAGE;
+const BASE = IMAGE;
 const Page =  (props) => {
     const api = useApi();
     const useQueryString = () => {

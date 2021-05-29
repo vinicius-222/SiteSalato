@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Item } from './styled';
 import {Loading} from '../../Loading';
 import { isLogged } from '../../../helpers/AuthHandler'
-import { BASEAPIIMAGE, IMAGE } from '../../../helpers/SalatoAPI'
+import {IMAGE } from '../../../helpers/SalatoAPI'
 
 
-const BASE = BASEAPIIMAGE;
+const BASE = IMAGE;
 export default (props) => {
     const [stLoading, setStLoading] = useState(false);
     const [logged, setLogged] = useState(false);
@@ -18,13 +18,14 @@ export default (props) => {
     useEffect(() => {
         const LoadImg = async () =>{
             let img = new Image;
-            img.src = `${IMAGE}${props.data.LinckImage}`;
+            img.src = `${BASE}${props.data.LinckImage}`;
             img.onload = () => {
                 setStLoading(true);
             }
         }
         LoadImg();
         setLogged(isLogged);
+        console.log(BASE);
     },[])
     
     return(
@@ -32,7 +33,7 @@ export default (props) => {
             <Link>
                 <div className="itemImage">
                     {!stLoading && <Loading height="50px" width="50px"/> }
-                    {stLoading && <img src={`${IMAGE}${props.data.LinckImage}`} alt="" /> }
+                    {stLoading && <img src={`${BASE}${props.data.LinckImage}`} alt="" /> }
                 </div>
                 <div className="AreaDetail">
                     <div className="itemName">{props.data.DsTitulo}</div>

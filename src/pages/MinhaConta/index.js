@@ -72,14 +72,16 @@ const MinhaConta = (props) => {
             setCelular(CELMask(""));
         }
         
+        if (props.DadosCliente[0].DtNascimento){
+            const date = props.DadosCliente[0].DtNascimento;
+            const parsedDate = parseISO(date);  
+            let formated = format(parsedDate, 'dd/LL/yyyy'); 
+            setDtNascimento(parsedDate);
+        }
         
         setTpSexo(props.DadosCliente[0].TpSexo);
         setTpEstadoCivil(props.DadosCliente[0].TpEstadoCivil);
         setCdChamada(props.DadosCliente[0].CdChamada);
-        const date = props.DadosCliente[0].DtNascimento;
-        const parsedDate = parseISO(date);  
-        let formated = format(parsedDate, 'dd/LL/yyyy'); 
-        setDtNascimento(parsedDate);
         setjwt(Cookies.get('token'));
         sethash(Cookies.get('hash'));
 
@@ -98,7 +100,7 @@ const MinhaConta = (props) => {
 
     const handleCancelar = (e) => {
         e.preventDefault();
-        window.location.href = '/MinhaConta?cat=MinhaConta';
+        //window.location.href = '/MinhaConta?cat=MinhaConta';
     }
 
     const handleDtInicio = (str, format, locale) =>{
