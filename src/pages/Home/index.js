@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { SearchArea, PageArea } from './styled';
 import Cookies from 'js-cookie';
 import { isLogged } from '../../helpers/AuthHandler';
-import { Slide} from 'react-slideshow-image';
+import { Zoom } from 'react-slideshow-image';
 import {Loading} from '../../components/Loading';
 import  useApi, { IMAGE } from '../../helpers/SalatoAPI'
 import { PageContainer } from '../../components/MainComponents';
@@ -68,7 +68,7 @@ const Page =  (props) => {
                         </div> 
                     }
                     {getImg.Produtos &&
-                        <Slide>
+                        <Zoom duration={5000} >
                             {getImg.Produtos.map((i, k) =>
                                 <div key={k} className="each-slide">
                                     <Link to="/produtos">
@@ -76,7 +76,7 @@ const Page =  (props) => {
                                     </Link>
                                 </div>      
                             )}
-                        </Slide>
+                        </Zoom>
                     }
                 </div>
             </SearchArea>

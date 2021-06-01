@@ -8,6 +8,7 @@ const Footer = () => {
                 Salato Alimentos<br/>
                 Todos os direiros reservados
             </div>
+            <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=d2kWYxdK0jnqtNa3nPlZByJLmOtYCgjoh7zIjQ9ZmVskWtoM8quVvLmvLlE1"></script></span>
         </FooterArea>
     );
 }

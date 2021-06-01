@@ -20,4 +20,15 @@ export const FooterArea = styled.div`
             height:40px;
         }
     }
+    .Verificado{
+        display:flex;
+        width:100px;
+        background-color:#00FF00;
+        height:20px;
+    }
+
+    #siteseal{
+        display:flex;
+        border-radius:5px;
+    }
 `;
